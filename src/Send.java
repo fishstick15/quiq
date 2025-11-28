@@ -8,7 +8,7 @@ import java.net.*;
 
 public class Send {
     public static void main(String[] args) throws IOException {
-        System.out.println("Quiq send v/a-0.1");
+        System.out.println("Quiq send 0.1.0-alpha");
         System.out.println("Copyright (c) 2025 nocku");
         System.out.println("\n");
         String serverIP;
