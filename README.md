@@ -18,6 +18,6 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
   This program does **not** encrypt messages. This project is a proof-of-concept meant for learning, and does not have any sort of encryption. Any data sent will be visible on the network.
   To test the program by yourself, simply set the IP Address in `Send.exe` to '127.0.0.1'.
 
-4. **Author**
-   This program was made by **nocku** (also known as *fishstick15*)
-   Github: [https://github.com/fishstick15](https://github.com/fishstick15)
+# Author
+This program was made by **nocku** (also known as *fishstick15*)
+Github: [https://github.com/fishstick15](https://github.com/fishstick15)
