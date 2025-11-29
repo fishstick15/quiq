@@ -19,5 +19,5 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
   To test the program by yourself, simply set the IP Address in 'Send.exe' to '127.0.0.1'.
 
 4. **Author**
-   This program was made by *nocku*, also known as *fishstick15* in some places.
+   This program was made by **nocku** (also known as *fishstick15*)
    Github: [https://github.com/fishstick15](https://github.com/fishstick15)
