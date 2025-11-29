@@ -7,7 +7,7 @@ import java.net.*;
  */
 
 public class Send {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("Quiq send 0.1.0-alpha");
         System.out.println("Copyright (c) 2025 nocku");
         System.out.println("\n");
@@ -35,9 +35,29 @@ public class Send {
 
             if (input == null || input.equalsIgnoreCase("quit")) break;
 
-            out.println(input);
+            out.println(getUserIp() + ": " + input);
             System.out.println("Server replied: " + in.readLine());
 
+        }
+    }
+
+    public static String getUserIp() throws Exception {
+        URL whatismyip = new URL("http://checkip.amazonaws.com");
+        BufferedReader ipin = null;
+        try {
+            ipin = new BufferedReader(new InputStreamReader(
+                    whatismyip.openStream()));
+            String ip = ipin.readLine();
+            return ip;
+
+        } finally {
+            if (ipin != null) {
+                try {
+                    ipin.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

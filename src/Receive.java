@@ -7,7 +7,7 @@ import java.net.*;
  */
 
 public class Receive {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         System.out.println("Quiq receive 0.1.0-alpha");
         System.out.println("Copyright (c) 2025 nocku");
         System.out.println("\n");
@@ -24,9 +24,29 @@ public class Receive {
 
         String line;
         while ((line = in.readLine()) != null) {
-            System.out.println("Client: " + line);
-            out.println("Server received: " + line);
+            System.out.println(line);
+            out.println("Server (" + getUserIp() + ") received: " + line);
         }
 
+    }
+
+    public static String getUserIp() throws Exception {
+        URL whatismyip = new URL("http://checkip.amazonaws.com");
+        BufferedReader ipin = null;
+        try {
+            ipin = new BufferedReader(new InputStreamReader(
+                    whatismyip.openStream()));
+            String ip = ipin.readLine();
+            return ip;
+
+        } finally {
+            if (ipin != null) {
+                try {
+                    ipin.close();
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
