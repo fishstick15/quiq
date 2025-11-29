@@ -7,25 +7,33 @@ import java.net.*;
  */
 
 public class Receive {
+
+    public static final String BOLD = "\u001B[1m";
+    public static final String RESET = "\u001B[0m";
+
+
     public static void main(String[] args) throws Exception {
-        System.out.println("Quiq receive 0.1.0-alpha");
-        System.out.println("Copyright (c) 2025 nocku");
+        System.out.println("Quiq send 0.1.0-alpha");
+        System.out.println(BOLD + "Copyright (c) 2025 nocku" + RESET);
         System.out.println("\n");
         int port = 5000;
 
         ServerSocket receiveSocket = new ServerSocket(port);
+        System.out.println("Socket request created..");
         Socket sendSocket = receiveSocket.accept();
+
+        InetAddress otherIP = receiveSocket.getInetAddress();
+
+        System.out.println("Socket request accepted by " + otherIP.getHostAddress());
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(sendSocket.getInputStream())
         );
 
-        PrintWriter out = new PrintWriter(sendSocket.getOutputStream(), true);
 
         String line;
         while ((line = in.readLine()) != null) {
             System.out.println(line);
-            out.println("Server (" + getUserIp() + ") received: " + line);
         }
 
     }

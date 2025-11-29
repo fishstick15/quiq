@@ -10,9 +10,13 @@ import java.time.LocalTime;
  */
 
 public class Send {
+
+    public static final String BOLD = "\u001B[1m";
+    public static final String RESET = "\u001B[0m";
+
     public static void main(String[] args) throws Exception {
         System.out.println("Quiq send 0.1.0-alpha");
-        System.out.println("Copyright (c) 2025 nocku");
+        System.out.println(BOLD + "Copyright (c) 2025 nocku" + RESET);
         System.out.println("\n");
         String serverIP;
         int port = 5000;
@@ -22,8 +26,19 @@ public class Send {
         System.out.println("Enter ip to connect to: ");
         serverIP = userInput.readLine();
 
-        Socket socket = new Socket(serverIP, port);
+        System.out.println("Searching for socket request on " + serverIP + "..");
+        Socket socket = null;
+        try {
+            socket = new Socket(serverIP, port);
+        } catch (Exception e) {
+            System.out.println("No socket request found on " + serverIP);
+            System.out.println("Closing automatically in 5 seconds.");
+            Thread.sleep(5000);
+            System.out.println("Exiting..");
+            System.exit(0);
+        }
 
+        System.out.println("Socket request found and accepted!");
 
 
         BufferedReader in = new BufferedReader(
@@ -32,6 +47,7 @@ public class Send {
 
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
+
         while (true) {
             System.out.println("Enter message: ");
             String input = userInput.readLine();
@@ -39,7 +55,6 @@ public class Send {
             if (input == null || input.equalsIgnoreCase("quit")) break;
 
             out.println("[" + getTimeDate() + "] " + getUserIp() + ": " + input);
-            System.out.println(in.readLine());
 
         }
     }
