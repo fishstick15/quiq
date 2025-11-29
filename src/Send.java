@@ -1,5 +1,8 @@
 import java.io.*;
 import java.net.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 
 /*
  * Copyright (c) 2025 nocku
@@ -35,8 +38,8 @@ public class Send {
 
             if (input == null || input.equalsIgnoreCase("quit")) break;
 
-            out.println(getUserIp() + ": " + input);
-            System.out.println("Server replied: " + in.readLine());
+            out.println("[" + getTimeDate() + "] " + getUserIp() + ": " + input);
+            System.out.println(in.readLine());
 
         }
     }
@@ -59,5 +62,14 @@ public class Send {
                 }
             }
         }
+    }
+
+    public static String getTimeDate() {
+        SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy");
+        String date = ft.format(new Date());
+
+        LocalTime time = LocalTime.now();
+
+        return time + " " + date;
     }
 }
