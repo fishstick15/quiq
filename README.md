@@ -20,4 +20,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 
 4. **Author**
    This program was made by *nocku*, also known as *fishstick15* in some places.
-   Github: [https://github.com/fishstick15] (https://github.com/fishstick15)
+   Github: [https://github.com/fishstick15](https://github.com/fishstick15)
