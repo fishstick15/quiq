@@ -41,10 +41,6 @@ public class Send {
         System.out.println("Socket request found and accepted!");
 
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(socket.getInputStream())
-        );
-
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
 
