@@ -13,7 +13,7 @@ public class Receive {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Quiq send 0.1.0-alpha");
+        System.out.println("Quiq send 0.2.0-alpha");
         System.out.println(BOLD + "Copyright (c) 2025 nocku" + RESET);
         System.out.println("\n");
         int port = 5000;
